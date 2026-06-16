@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ready-to-use guides & templates for Filipino homeowners and builders. Instant download." />
+  <title>BuildEasy PH — Construction & Home Building Digital Products</title>
+  <style>
+    :root {
+      --orange: #E8650A;
+      --orange-light: #FFF3EB;
+      --orange-mid: #FFB077;
+      --dark: #1A1A2E;
+      --dark2: #16213E;
+      --gray: #F7F7F7;
+      --gray2: #EEEEEE;
+      --text: #333333;
+      --muted: #666666;
+      --white: #FFFFFF;
+      --radius: 10px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      background: var(--dark);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 62px;
+    }
+    .nav-logo { font-size: 1.3rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: #ccc; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); text-decoration: none; }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: 7px 16px;
+      border-radius: 7px;
+      font-weight: 700 !important;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+      color: var(--white);
+      padding: 72px 5% 64px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(232,101,10,0.18);
+      color: var(--orange-mid);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 18px; }
+    .hero h1 span { color: var(--orange); }
+    .hero-sub { font-size: 1.08rem; color: #bbb; max-width: 560px; margin: 0 auto 32px; }
+    .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 36px; }
+    .hero-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #ccc;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .hero-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .hero-feature {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 0.82rem;
+      padding: 5px 13px;
+      border-radius: 6px;
+    }
+
+    /* SECTIONS */
+    .section { padding: 64px 5%; }
+    .section-label {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .section-sub { color: var(--muted); font-size: 1rem; max-width: 560px; margin-bottom: 40px; }
+
+    /* PRODUCT GRID */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+    .product-card {
+      border: 1.5px solid var(--gray2);
+      border-radius: var(--radius);
+      padding: 26px 22px 22px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.13); }
+
+    /* Highlight new contractor cards */
+    .product-card.highlight {
+      border-color: var(--orange);
+      background: var(--orange-light);
+    }
+
+    .card-badges { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+    .badge { font-size: 0.72rem; font-weight: 700; padding: 3px 9px; border-radius: 20px; }
+    .badge-popular  { background: #FFF3EB; color: var(--orange); }
+    .badge-new      { background: #E8F4FF; color: #0066CC; }
+    .badge-hot      { background: #FFE8E8; color: #CC0000; }
+    .badge-essential{ background: var(--dark); color: var(--white); }
+    .badge-type     { background: var(--gray2); color: #555; }
+
+    .card-title { font-size: 1.08rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .card-desc  { font-size: 0.88rem; color: var(--muted); margin-bottom: 16px; flex: 1; }
+    .card-features { list-style: none; margin-bottom: 18px; display: flex; flex-direction: column; gap: 5px; }
+    .card-features li { font-size: 0.83rem; color: #444; display: flex; align-items: flex-start; gap: 7px; }
+    .card-features li::before { content: "✓"; color: var(--orange); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    .card-price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .price-main { font-size: 1.6rem; font-weight: 900; color: var(--dark); }
+    .price-old  { font-size: 0.88rem; color: #aaa; text-decoration: line-through; }
+    .price-save { font-size: 0.78rem; font-weight: 700; color: #1E7E34; background: #EAF7ED; padding: 2px 8px; border-radius: 12px; }
+
+    .card-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 16px; border-radius: 7px;
+      font-size: 0.83rem; font-weight: 700;
+      cursor: pointer; border: none;
+      transition: opacity 0.15s, transform 0.12s;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: 0.88; transform: scale(0.98); text-decoration: none; }
+    .btn-primary  { background: var(--orange); color: var(--white); flex: 1; justify-content: center; }
+    .btn-secondary{ background: var(--dark); color: var(--white); flex: 1; justify-content: center; }
+
+    /* BUNDLE */
+    .bundle-section { background: var(--dark); padding: 64px 5%; }
+    .bundle-card {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 40px;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .bundle-card h2 { color: var(--white); font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; }
+    .bundle-card p  { color: #aaa; margin-bottom: 28px; }
+    .bundle-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+    .bundle-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ccc; font-size: 0.82rem;
+      padding: 6px 14px; border-radius: 6px;
+    }
+    .bundle-price { margin-bottom: 24px; }
+    .bundle-price .price-old   { color: #888; font-size: 1rem; }
+    .bundle-price .price-main  { font-size: 2.6rem; font-weight: 900; color: var(--white); display: block; line-height: 1.1; }
+    .bundle-price .price-save-big {
+      display: inline-block;
+      background: var(--orange); color: var(--white);
+      font-size: 0.85rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px; margin-top: 8px;
+    }
+    .btn-bundle { background: var(--orange); color: var(--white); padding: 15px 44px; font-size: 1rem; border-radius: 8px; font-weight: 800; }
+
+    /* WHY */
+    .why-section { background: var(--gray); padding: 64px 5%; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 22px; }
+    .why-card { background: var(--white); border-radius: var(--radius); padding: 28px 22px; box-shadow: var(--shadow); }
+    .why-icon  { font-size: 2rem; margin-bottom: 12px; }
+    .why-title { font-weight: 800; color: var(--dark); margin-bottom: 6px; font-size: 0.97rem; }
+    .why-desc  { font-size: 0.85rem; color: var(--muted); }
+
+    /* FAQ */
+    .faq-section { padding: 64px 5%; }
+    .faq-list { max-width: 700px; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { border: 1.5px solid var(--gray2); border-radius: 8px; overflow: hidden; }
+    .faq-q {
+      width: 100%; background: var(--white); border: none;
+      padding: 18px 20px; font-size: 0.95rem; font-weight: 700;
+      color: var(--dark); text-align: left; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq-q:hover { background: var(--gray); }
+    .faq-q .arrow { font-size: 1rem; color: var(--orange); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { display: none; padding: 0 20px 18px; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .faq-item.open .faq-a   { display: block; }
+    .faq-item.open .arrow   { transform: rotate(180deg); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); color: #888;
+      text-align: center; padding: 32px 5%; font-size: 0.85rem;
+    }
+    footer a { color: var(--orange); }
+    .footer-brand { color: var(--white); font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; }
+    .footer-brand span { color: var(--orange); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 48px 5%; }
+      .section { padding: 48px 5%; }
+      .bundle-card { padding: 28px 18px; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>Build</span>Easy PH</div>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#bundle">Bundle</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://buildeasyph.gumroad.com" target="_blank" class="nav-cta">🛒 Shop Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">🇵🇭 Made for Filipino Builders</div>
+  <h1>Build smarter.<br><span>Save time & money.</span></h1>
+  <p class="hero-sub">Ready-to-use guides, templates, and tools for Filipino homeowners, contractors, and builders. Download instantly — use today.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">⚡ Instant PDF download</span>
+    <span class="hero-badge">📍 Philippine-focused</span>
+    <span class="hero-badge">🔒 Secure via Gumroad</span>
+    <span class="hero-badge">🔄 Free updates included</span>
+  </div>
+  <div class="hero-features">
+    <span class="hero-feature">LGU-aligned permit checklist</span>
+    <span class="hero-feature">Philippine material prices</span>
+    <span class="hero-feature">Editable contract templates</span>
+    <span class="hero-feature">Download in minutes</span>
+  </div>
+</section>
+
+<!-- ALL PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-label">Digital Products</div>
+  <h2 class="section-title">Our Digital Products</h2>
+  <p class="section-sub">Everything you need to build, renovate, and protect your home project in the Philippines.</p>
+
+  <div class="products-grid">
+
+    <!-- 1. Building Permit Guide -->
+    <div class="product-card">
+      <div class="card-badges">
+        <span class="badge badge-popular">⭐ Most Popular</span>
+        <span class="badge badge-type">🏛️ Permit Guide</span>
+      </div>
+      <div class="card-title">Building Permit Guide</div>
+      <div class="card-desc">Step-by-step guide to securing your building permit in the Philippines — from requirements to approval.</div>
+      <ul class="card-features">
+        <li>Complete LGU document checklist</li>
+        <li>Step-by-step application process</li>
+        <li>Common rejection reasons & fixes</li>
+        <li>Fees, timelines & glossary</li>
+      </ul>
+      <div class="card-price">
+        <span class="price-main">₱299</span>
+        <span class="price-old">₱399</span>
+        <span class="price-save">Save ₱100</span>
+      </div>
+      <div class="card-btns">
+        <a href="https://buildeasyph.gumroad.com/l/hgdgjt" class="btn btn-primary" target="_blank">⚡ Gumroad</a>
+        <a href="https://buildeasyph.gumroad.com/l/hgdgjt" class="btn btn-secondary" target="_blank">🛍 Etsy</a>
+      </div>
+    </div>
+
+    <!-- 2. Cost Estimator -->
+    <div class="product-card">
+      <div class="card-badges">
+        <span class="badge badge-essential">✅ Essential</span>
+        <span class="badge badge-type">🧮 Cost Estimator</span>
+      </div>
+      <div class="card-title">House Construction Cost Estimator</div>
+      <div class="card-desc">A detailed cost breakdown guide using current Philippine material and labor rates.</div>
+      <ul class="card-features">
+        <li>Room-by-room cost breakdown</li>
+        <li>2024–2025 PH material price list</li>
+        <li>Labor cost rates per trade</li>
+        <li>Sample 80 sqm house budget</li>
+      </ul>
+      <div class="card-price">
+        <span class="price-main">₱349</span>
+        <span class="price-old">₱499</span>
+        <span class="price-save">Save ₱150</span>
+      </div>
+      <div class="card-btns">
+        <a href="https://buildeasyph.gumroad.com/l/yofoem" class="btn btn-primary" target="_blank">⚡ Gumroad</a>
+        <a href="https://buildeasyph.gumroad.com/l/yofoem" class="btn btn-secondary" target="_blank">🛍 Etsy</a>
+      </div>
+    </div>
+
+    <!-- 3. Renovation Checklist -->
+    <div class="product-card">
+      <div class="card-badges">
+        <span class="badge badge-new">✨ New</span>
+        <span class="badge badge-type">🏠 Renovation</span>
+      </div>
+      <div class="card-title">Home Renovation Checklist</div>
+      <div class="card-desc">A complete before-during-after checklist to manage your home renovation without the stress.</div>
+      <ul class="card-features">
+        <li>Pre-renovation planning checklist</li>
+        <li>Contractor hiring & vetting guide</li>
+        <li>Room-by-room renovation tracker</li>
+        <li>Punch list & final inspection sheet</li>
+      </ul>
+      <div class="card-price">
+        <span class="price-main">₱199</span>
+      </div>
+      <div class="card-btns">
+        <a href="https://buildeasyph.gumroad.com/l/vfwuhu" class="btn btn-primary" target="_blank">⚡ Gumroad</a>
+        <a href="https://buildeasyph.gumroad.com/l/vfwuhu" class="btn btn-secondary" target="_blank">🛍 Etsy</a>
+      </div>
+    </div>
+
+    <!-- 4. Contract Templates -->
+    <div class="product-card">
+      <div class="card-badges">
+        <span class="badge badge-popular">⭐ Bestseller</span>
+        <span class="badge badge-type">📋 Templates</span>
+      </div>
+      <div class="card-title">Construction Contract Templates</div>
+      <div class="card-desc">Ready-to-use, editable construction contracts tailored to Philippine law and practices.</div>
+      <ul class="card-features">
+        <li>General contractor agreement</li>
+        <li>Labor-only contract template</li>
+        <li>Subcontractor agreement</li>
+        <li>Change order form & payment schedule</li>
+      </ul>
+      <div class="card-price">
+        <span class="price-main">₱399</span>
+        <span class="price-old">₱549</span>
+        <span class="price-save">Save ₱150</span>
+      </div>
+      <div class="card-btns">
+        <a href="https://buildeasyph.gumroad.com/l/easwaz" class="btn btn-primary" target="_blank">⚡ Gumroad</a>
+        <a href="https://buildeasyph.gumroad.com/l/easwaz" class="btn btn-secondary" target="_blank">🛍 Etsy</a>
+      </div>
+    </div>
+
+    <!-- 5. NEW: Contractor Hiring Checklist -->
+    <div class="product-card highlight">
+      <div class="card-badges">
+        <span class="badge badge-hot">🔥 New Release</span>
+        <span class="badge badge-type">👷 Contractor</span>
+      </div>
+      <div class="card-title">5 Dapat Suriin Bago Tanggapin ang Contractor</div>
+      <div class="card-desc">Pinagsama-sama mula sa mga kwento ng kapwa homeowners. Protektahan ang iyong sarili bago ka pumirma ng kontrata.</div>
+      <ul class="card-features">
+        <li>Paano i-verify ang lisensya ng contractor</li>
+        <li>Tanong sa references at past clients</li>
+        <li>Ano ang dapat nasa kontrata bago pumirma</li>
+        <li>Paano mag-compare ng quotations nang tama</li>
+        <li>Mga totoong kwento ng kapwa homeowners</li>
+      </ul>
+      <div class="card-price">
+        <span class="price-main">₱99</span>
+      </div>
+      <div class="card-btns">
+        <a href="https://buildeasyph.gumroad.com" class="btn btn-primary" target="_blank">⚡ Gumroad</a>
+        <a href="https://buildeasyph.gumroad.com" class="btn btn-secondary" target="_blank">🛍 Etsy</a>
+      </div>
+    </div>
+
+    <!-- 6. NEW: Before Paying Contractor -->
+    <div class="product-card highlight">
+      <div class="card-badges">
+        <span class="badge badge-hot">🔥 New Release</span>
+        <span class="badge badge-type">💰 Payment</span>
+      </div>
+      <div class="card-title">Bago Ka Magbayad — Checklist sa Bawat Payment sa Contractor</div>
+      <div class="card-desc">Huwag bayaran ang contractor nang walang inspection. Para sa downpayment, progress billing, at final payment.</div>
+      <ul class="card-features">
+        <li>4 checks bago ang downpayment</li>
+        <li>4 checks bago ang bawat progress payment</li>
+        <li>5 checks bago ang final payment</li>
+        <li>Payment Tracker table — para may record ka</li>
+        <li>Mga totoong kwento ng kapwa homeowners</li>
+      </ul>
+      <div class="card-price">
+        <span class="price-main">₱99</span>
+      </div>
+      <div class="card-btns">
+        <a href="https://buildeasyph.gumroad.com" class="btn btn-primary" target="_blank">⚡ Gumroad</a>
+        <a href="https://buildeasyph.gumroad.com" class="btn btn-secondary" target="_blank">🛍 Etsy</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<section class="bundle-section" id="bundle">
+  <div class="bundle-card">
+    <div style="font-size:2rem; margin-bottom:12px;">🎁</div>
+    <h2>Complete Builder's Bundle</h2>
+    <p>Get all 6 products at one discounted price. Everything you need to plan, build, and protect your home project in the Philippines.</p>
+    <div class="bundle-items">
+      <span class="bundle-item">Building Permit Guide (₱299)</span>
+      <span class="bundle-item">Cost Estimator (₱349)</span>
+      <span class="bundle-item">Renovation Checklist (₱199)</span>
+      <span class="bundle-item">Contract Templates (₱399)</span>
+      <span class="bundle-item">Contractor Hiring Checklist (₱99)</span>
+      <span class="bundle-item">Before Paying Checklist (₱99)</span>
+    </div>
+    <div class="bundle-price">
+      <span class="price-old">₱1,444 if bought separately</span>
+      <span class="price-main">₱899</span>
+      <span class="price-save-big">You save ₱545</span>
+    </div>
+    <a href="https://buildeasyph.gumroad.com" class="btn btn-bundle" target="_blank">⚡ Get the Bundle</a>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-label">Why BuildEasy PH?</div>
+    <h2 class="section-title" style="margin-bottom:0;">Built specifically for Filipino builders and homeowners.</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🇵🇭</div>
+      <div class="why-title">Made for the Philippines</div>
+      <div class="why-desc">All guides use Philippine law, LGU processes, local prices, and Filipino construction practices.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Instant download</div>
+      <div class="why-desc">Pay and download immediately. No waiting, no shipping. Start using your guide within minutes.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✏️</div>
+      <div class="why-title">Ready to use</div>
+      <div class="why-desc">Fill in the blanks. Our templates are designed to be used immediately, not just read.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔄</div>
+      <div class="why-title">Free updates</div>
+      <div class="why-desc">Buy once, get updates free. We update prices and requirements regularly.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">Community-first</div>
+      <div class="why-desc">Our guides come from real experiences shared across Filipino homebuilder communities.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How do I receive my download after payment? <span class="arrow">▼</span></button>
+      <div class="faq-a">After payment on Gumroad or Etsy, you will receive an email with a download link immediately. The file is a PDF you can save on your phone, tablet, or computer.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Are the contract templates editable? <span class="arrow">▼</span></button>
+      <div class="faq-a">Yes! The contract templates come as PDF with fillable fields. You can also copy the text into Microsoft Word or Google Docs for full editing.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do the guides apply to all cities in the Philippines? <span class="arrow">▼</span></button>
+      <div class="faq-a">Yes — the guides cover national requirements (PD 1096, DPWH) that apply everywhere. We also note where LGUs may have additional local requirements, especially for Metro Manila.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I use these for commercial projects? <span class="arrow">▼</span></button>
+      <div class="faq-a">The Building Permit Guide and Cost Estimator include notes for both residential and light commercial projects. The contract templates are best suited for residential construction.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What if I'm not satisfied? <span class="arrow">▼</span></button>
+      <div class="faq-a">We stand behind our products. If you're not satisfied, contact us within 7 days of purchase and we'll issue a full refund — no questions asked.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><span>Build</span>Easy PH</div>
+  <p>Digital construction tools for Filipino builders & homeowners.</p>
+  <p style="margin-top:8px;">
+    Available on <a href="https://buildeasyph.gumroad.com" target="_blank">Gumroad</a> &amp; <a href="https://etsy.com/shop/buildeasyph" target="_blank">Etsy</a> · Instant download
+  </p>
+  <p style="margin-top:12px; color:#555;">© 2025 BuildEasy PH</p>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    btn.parentElement.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
